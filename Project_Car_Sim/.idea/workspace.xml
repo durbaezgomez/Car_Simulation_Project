@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea32c9e5-200d-43b4-a1f0-9610450f98cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project_Car/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Car/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project_Car/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Car/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project_Car/out/production/Project_Car/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Car/out/production/Project_Car/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project_Car/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_Car/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/projekt_car.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../projekt_car/src/com/company/Main.java" beforeDir="false" />
-    </list>
+    <list default="true" id="ea32c9e5-200d-43b4-a1f0-9610450f98cf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,25 +31,16 @@
     <session id="-237420726">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -93,6 +70,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,8 +88,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,16 +137,17 @@
       <updated>1543583737408</updated>
       <workItem from="1543583741133" duration="970000" />
       <workItem from="1543595459678" duration="350000" />
+      <workItem from="1543774515357" duration="41000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1320000" />
+    <option name="totallyTimeSpent" value="1361000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,8 +186,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="375">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
         </state>
       </provider>
     </entry>
