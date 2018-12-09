@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,6 +26,22 @@ public class Main extends Application{
         primaryStage.show();
 
     }
+
+
+    final AnimationTimer timer = new AnimationTimer() {
+
+        private long lastUpdate = 0;
+
+        @Override
+        public void handle(long time) {
+            if (this.lastUpdate > 100) {
+                System.out.println("pressed");
+            }
+            this.lastUpdate = time;
+        }
+    };
+
+
 
     public static void main(String[] args) {
         Application.launch(args);

@@ -1,12 +1,16 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.scene.shape.Line;
 import javafx.animation.RotateTransition;
 import javafx.util.Duration;
-
 
 public class Controller {
 
@@ -20,43 +24,99 @@ public class Controller {
     private Button gearDown;
 
     @FXML
-    private Text currentGear;
+    private Text gearIndicator;
 
     @FXML
     private Text engineIndicator;
 
     @FXML
-    private Text breakIndicator;
+    private Text brakeIndicator;
 
     @FXML
-    private Button breakTrigger;
+    private Button brakeTrigger;
 
     @FXML
-    private Line timer;
+    private Button accelerateTrigger;
 
-    private String[] gearArray = {"R","0","1","2","3","4","5","6"};
+    @FXML
+    private Label speedIndicator;
+
+    int currentSpeed = 0;
+    private StringProperty currentSpeedProperty = new StringProperty() {
+        @Override
+        public void bind(ObservableValue<? extends String> observable) {
+
+        }
+
+        @Override
+        public void unbind() {
+
+        }
+
+        @Override
+        public boolean isBound() {
+            return false;
+        }
+
+        @Override
+        public Object getBean() {
+            return null;
+        }
+
+        @Override
+        public String getName() {
+            return null;
+        }
+
+        @Override
+        public String get() {
+            return null;
+        }
+
+        @Override
+        public void addListener(ChangeListener<? super String> listener) {
+
+        }
+
+        @Override
+        public void removeListener(ChangeListener<? super String> listener) {
+
+        }
+
+        @Override
+        public void addListener(InvalidationListener listener) {
+
+        }
+
+        @Override
+        public void removeListener(InvalidationListener listener) {
+
+        }
+
+        @Override
+        public void set(String value) {
+
+        }
+    };
+
+
+    @FXML
+    private Line clockArm;
+
+    private String[] gearArray = {"R","0","1","2","3","4","5"};
+    private int[] gearMaxSpeed = {10,0,10,30,40,60,100};
+
     private int gearIndex = 1;
 
+    // METHOD CHECKING IF INDICATOR IS ON
     Boolean isOn(Text text){
-        if(text.getText()=="ON")
-            return true;
-        else
-            return false;
+        return (text.getText()=="ON");
     }
 
+    // ENGINE
     void handleEngine(){
         engineStart.setOnAction(e -> engineSwitch());
     }
-
-    void handleBreak(){
-        breakTrigger.setOnAction(e -> breakSwitch());
-    }
-
-    void handleGearBox(){
-        gearUp.setOnAction(e -> gearSwitch(1));
-        gearDown.setOnAction(e -> gearSwitch(-1));
-    }
-
     void engineSwitch(){
         if (isOn(engineIndicator)){
             engineIndicator.setText("OFF");
@@ -67,39 +127,107 @@ public class Controller {
         engineStart.setText("ENGINE STOP");
     }
 
-    void breakSwitch(){
-        if (isOn(breakIndicator))
-            breakIndicator.setText("OFF");
+    //BRAKE
+    void handleBrake(){
+        brakeTrigger.setOnAction(e -> brakeSwitch());
+    }
+    void brakeSwitch(){
+        if (isOn(brakeIndicator))
+            brakeIndicator.setText("OFF");
         else
-            breakIndicator.setText("ON");
+            brakeIndicator.setText("ON");
     }
 
+    // GEARBOX
+    void handleGearBox(){
+        gearUp.setOnAction(e -> gearSwitch(1));
+        gearDown.setOnAction(e -> gearSwitch(-1));
+    }
     void gearSwitch(int difference){
-        if((gearIndex+difference)<0 || (gearIndex+difference)>7){}
+        if((gearIndex+difference)<0 || (gearIndex+difference)>6){}
         else{
-            currentGear.setText(gearArray[gearIndex+difference]);
+            gearIndicator.setText(gearArray[gearIndex+difference]);
             gearIndex=gearIndex+difference;
+
+            // TODO ADD CONSTRAINTS FOR REVERSE AND 0 GEAR
+            if(difference>0){
+                clockRotate((gearIndex*170/6)-((gearIndex-1)*(170/6)));
+            }
+            else{
+                clockRotate(((gearIndex-1)*(170/6)) - (gearIndex*170/6));
+            }
+
+            System.out.println("CURRENT GEAR INDEX: " + gearIndex);
+            System.out.println("ANGLE: "+ clockArm.getRotate());
+//            System.out.println("CURRENT MAX SPEED: " + gearMaxSpeed[gearIndex]);
         }
     }
 
+    //ACCELERATION
+    void handleAccelerator(){
+        accelerateTrigger.setOnMousePressed(e -> StartAccelerating());
+        accelerateTrigger.setOnMouseReleased(e -> StopAccelerating());
+    }
+    void StartAccelerating(){
 
-    void lineRotate(){
-        RotateTransition rt = new RotateTransition(Duration.millis(3000), timer);
-        rt.setByAngle(170);
-        rt.setCycleCount(4);
-        rt.setAutoReverse(true);
+        currentSpeed++;
+        System.out.println(currentSpeed);
+        speedIndicator.setText(String.valueOf(currentSpeed));
+
+
+//        currentSpeedProperty.setValue(String.valueOf(currentSpeed));
+
+//        speedIndicator.textProperty().bind(currentSpeedProperty);
+//        currentSpeed = Integer.parseInt(speedIndicator.getText());
+
+//        while(){
+//            if(currentSpeed<gearMaxSpeed[gearIndex]){
+//
+//                System.out.println(currentSpeed);
+////            currentSpeedProperty.setValue(String.valueOf(currentSpeed));
+//                try{
+//                    Thread.sleep(500);
+//                }catch (Exception e){};
+//
+//                currentSpeed++;
+//            }
+//        }
+
+
+    }
+    void StopAccelerating(){
+        System.out.println("Stopped Accelerating");
+//        for (int i=0; i<(gearMaxSpeed[gearIndex]-currentSpeed); i++){
+//            currentSpeed--;
+//            speedIndicator.setText(String.valueOf(currentSpeed));
+//            try{
+//                wait(300);
+//            }catch (Exception e){};
+//        }
+    }
+
+
+    // TODO TEST CLOCK ROTATING METHOD
+    void clockRotate(int angle){
+        RotateTransition rt = new RotateTransition(Duration.millis(1000), clockArm);
+        rt.setByAngle(angle);
+        rt.setCycleCount(1);
+//        rt.setAutoReverse(true);
 
         rt.play();
     }
 
-
+    // MAIN CAR INIT METHOD
     public void carInit(){
-        currentGear.setText("0");
-        handleBreak();
+        gearIndicator.setText("0");
+
+        System.out.println("CURRENT GEAR INDEX: " + gearIndex);
+        System.out.println("ANGLE: "+ clockArm.getRotate());
+
+        handleBrake();
         handleEngine();
         handleGearBox();
-
-        lineRotate();
+        handleAccelerator();
     }
 
 
