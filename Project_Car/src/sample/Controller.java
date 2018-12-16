@@ -88,11 +88,48 @@ public class Controller {
 
     //ACCELERATION
     void StartAccelerating(){
+        if(!isOn(engineIndicator)){statusIndicator.setText("ENGINE IS OFF");}
+        else {
+            Accelerate();
+        }
+    }
+
+    void Accelerate(){
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {}
+        if (car.getCurrentSpeed().intValue() < car.gearMaxSpeed[car.gearIndex+1]){
+            if(car.gearIndex != 1){
+                car.setCurrentSpeed(car.getCurrentSpeed().intValue()+1);
+                speedIndicator.setText(String.valueOf(car.getCurrentSpeed().intValue()));
+            }
+        }
+        else{
+            statusIndicator.setText("Engine Overload!");
+        }
+    }
+
+    void ReduceSpeed(){
+
+        for(int i = car.getCurrentSpeed().intValue(); i != car.gearMaxSpeed[car.gearIndex]; i--){
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {}
+            car.setCurrentSpeed(car.getCurrentSpeed().intValue()-1);
+            System.out.println(car.getCurrentSpeed().intValue());
+            speedIndicator.setText(String.valueOf(car.getCurrentSpeed().intValue()));
+        }
+
+//        (car.currentSpeed != car.gearMaxSpeed[car.gearIndex-1]){
+//        };
 
     }
 
     void StopAccelerating(){
         System.out.println("Stopped Accelerating");
+        if(car.getCurrentSpeed().intValue() >= car.gearMaxSpeed[car.gearIndex-1]){
+            ReduceSpeed();
+        }
     }
 
 

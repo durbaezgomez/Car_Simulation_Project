@@ -61,7 +61,7 @@
       <Arc fill="#fff06e" length="180.0" radiusX="80.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="61.0" translateY="-40.0" type="ROUND" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <Line fx:id="clockArm" endX="70.0" rotate="10.0" startX="-100.0" strokeWidth="6.0" translateX="53.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <Arc fill="#d09932" length="180.0" radiusX="103.0" radiusY="90.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="38.0" translateY="43.0" type="ROUND" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="km/h" textAlignment="JUSTIFY" translateX="115.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="km/h" textAlignment="JUSTIFY" translateX="148.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <font>
             <Font size="30.0" />
          </font>

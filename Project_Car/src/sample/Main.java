@@ -63,6 +63,15 @@ public class Main extends Application{
             }
         });
 
+        primaryStage.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            switch(event.getCode()){
+                case G:
+                    controller.StopAccelerating();
+                    break;
+            }
+
+        });
+
 
         primaryStage.setScene(scene);
         primaryStage.show();
