@@ -3,15 +3,9 @@ package sample;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyCode;
-
-import javafx.event.EventHandler;
-
 
 public class Main extends Application{
 
@@ -25,37 +19,40 @@ public class Main extends Application{
         primaryStage.setTitle("CAR PROTOTYPE");
 
         Scene scene = new Scene(box);
-        scene.setOnKeyReleased(event -> controller.carInit());
+
         controller.carInit();
 
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
                 case E:
-                    controller.engineSwitch();
+                    controller.EngineSwitch();
                     break;
                 case B:
-                    controller.brakeSwitch();
+                    controller.Brake();
+                    break;
+                case SHIFT:
+                    controller.AnimationClutchDown();
                     break;
                 case R:
-                    controller.gearSwitch(0);
+                    controller.GearSwitch(0);
                     break;
                 case DIGIT0:
-                    controller.gearSwitch(1);
+                    controller.GearSwitch(1);
                     break;
                 case DIGIT1:
-                    controller.gearSwitch(2);
+                    controller.GearSwitch(2);
                     break;
                 case DIGIT2:
-                    controller.gearSwitch(3);
+                    controller.GearSwitch(3);
                     break;
                 case DIGIT3:
-                    controller.gearSwitch(4);
+                    controller.GearSwitch(4);
                     break;
                 case DIGIT4:
-                    controller.gearSwitch(5);
+                    controller.GearSwitch(5);
                     break;
                 case DIGIT5:
-                    controller.gearSwitch(6);
+                    controller.GearSwitch(6);
                     break;
                 case G:
                     controller.StartAccelerating();
@@ -68,10 +65,15 @@ public class Main extends Application{
                 case G:
                     controller.StopAccelerating();
                     break;
+                case B:
+                    controller.AnimationBrakeUp();
+                    break;
+                case SHIFT:
+                    controller.AnimationClutchUp();
+                    break;
             }
 
         });
-
 
         primaryStage.setScene(scene);
         primaryStage.show();
